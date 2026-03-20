@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnesPrep</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f6f2; --surface: #ffffff; --surface2: #f2f1ed; --border: #e8e6e0;
+  --text: #1a1816; --text2: #8a8780; --text3: #b8b5b0;
+  --blue: #2563eb; --blue-light: #eff6ff; --blue-border: #bfdbfe;
+  --amber: #d97706; --amber-light: #fffbeb; --amber-border: #fde68a;
+  --orange: #ea580c; --orange-light: #fff7ed; --orange-border: #fed7aa;
+  --green: #16a34a; --green-light: #f0fdf4; --green-border: #bbf7d0;
+  --red: #dc2626; --red-light: #fef2f2; --red-border: #fecaca;
+  --radius: 16px; --radius-sm: 10px;
+  --shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; max-width: 480px; margin: 0 auto; }
+ 
+.header { background: var(--surface); padding: 1.125rem 1.25rem 1rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 20; }
+.header-icon { width: 36px; height: 36px; background: var(--text); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.header-title { font-size: 18px; font-weight: 600; letter-spacing: -0.4px; }
+.header-sub { font-size: 12px; color: var(--text2); margin-top: 1px; }
+ 
+.input-section { padding: 1.25rem; }
+.card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; }
+.card-inner { padding: 1.25rem; }
+.input-label { font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.625rem; display: block; }
+.case-textarea { width: 100%; min-height: 110px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface2); color: var(--text); font-size: 14px; font-family: inherit; line-height: 1.6; resize: none; outline: none; transition: border-color 0.15s, background 0.15s; }
+.case-textarea:focus { border-color: var(--text); background: var(--surface); }
+.case-textarea::placeholder { color: var(--text3); }
+.chips-label { font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.08em; margin: 1rem 0 0.625rem; display: block; }
+.chips-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip { padding: 6px 12px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface2); color: var(--text2); font-size: 13px; font-family: inherit; font-weight: 500; cursor: pointer; transition: all 0.15s; user-select: none; }
+.chip:active { transform: scale(0.96); }
+.chip.active { background: var(--text); color: #fff; border-color: var(--text); }
+.divider { height: 1px; background: var(--border); margin: 1.25rem 0; }
+.analyse-btn { width: 100%; padding: 14px; border: none; border-radius: var(--radius-sm); background: var(--text); color: #fff; font-size: 15px; font-family: inherit; font-weight: 600; cursor: pointer; transition: all 0.15s; letter-spacing: -0.2px; }
+.analyse-btn:active { transform: scale(0.98); background: #333; }
+.analyse-btn:disabled { background: var(--text3); cursor: not-allowed; transform: none; }
+ 
+.loading-wrap { display: none; padding: 2.5rem 1.25rem; text-align: center; }
+.loading-dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
+.loading-dots span { width: 8px; height: 8px; background: var(--text3); border-radius: 50%; animation: bounce 1.2s ease-in-out infinite; }
+.loading-dots span:nth-child(2) { animation-delay: 0.15s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes bounce { 0%,80%,100% { transform: scale(0.7); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+.loading-text { font-size: 13px; color: var(--text2); }
+ 
+.alerts-section { padding: 0 1.25rem; display: none; margin-bottom: 4px; }
+.alert-banner { background: var(--amber-light); border: 1px solid var(--amber-border); border-radius: var(--radius-sm); padding: 0.875rem 1rem; }
+.alert-banner-title { font-size: 11px; font-weight: 600; color: var(--amber); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.alert-item { font-size: 13px; color: #92400e; line-height: 1.6; padding: 3px 0; display: flex; align-items: flex-start; gap: 8px; }
+.alert-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 7px; }
+ 
+.results-section { padding: 0 1.25rem 2rem; display: none; }
+.result-card { border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-sm); margin-bottom: 10px; overflow: hidden; border-left: 4px solid transparent; animation: slideUp 0.3s cubic-bezier(.4,0,.2,1) both; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.rc-blue { border-left-color: var(--blue); animation-delay: 0.05s; }
+.rc-amber { border-left-color: var(--amber); animation-delay: 0.1s; }
+.rc-orange { border-left-color: var(--orange); animation-delay: 0.15s; }
+.rc-green { border-left-color: var(--green); animation-delay: 0.2s; }
+.result-header { padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+.result-header-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.result-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.rc-blue .result-icon { background: var(--blue-light); }
+.rc-amber .result-icon { background: var(--amber-light); }
+.rc-orange .result-icon { background: var(--orange-light); }
+.rc-green .result-icon { background: var(--green-light); }
+.result-title { font-size: 14px; font-weight: 600; }
+.rc-blue .result-title { color: var(--blue); }
+.rc-amber .result-title { color: var(--amber); }
+.rc-orange .result-title { color: var(--orange); }
+.rc-green .result-title { color: var(--green); }
+.result-preview { font-size: 12px; color: var(--text2); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px; }
+.result-chevron { color: var(--text3); font-size: 16px; transition: transform 0.2s; flex-shrink: 0; }
+.result-chevron.open { transform: rotate(180deg); }
+.result-body { display: none; border-top: 1px solid var(--border); padding: 1rem 1.25rem; }
+.result-body.open { display: block; }
+.result-item { padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; line-height: 1.6; color: var(--text); display: flex; align-items: flex-start; gap: 10px; }
+.result-item:last-child { border-bottom: none; padding-bottom: 0; }
+.result-item-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.rc-blue .result-item-dot { background: var(--blue); }
+.rc-amber .result-item-dot { background: var(--amber); }
+.rc-orange .result-item-dot { background: var(--orange); }
+.rc-green .result-item-dot { background: var(--green); }
+ 
+.new-case-wrap { padding: 0 1.25rem 0.75rem; display: none; }
+.new-case-btn { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--text2); font-size: 13px; font-family: inherit; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+.new-case-btn:active { background: var(--surface2); }
+.error-banner { background: var(--red-light); border: 1px solid var(--red-border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin: 0 1.25rem 1rem; font-size: 13px; color: var(--red); display: none; }
+</style>
+</head>
+<body>
+ 
+<div class="header">
+  <div class="header-icon">🫁</div>
+  <div>
+    <div class="header-title">AnesPrep</div>
+    <div class="header-sub">Anesthesia case planning</div>
+  </div>
+</div>
+ 
+<div class="input-section" id="inputSection">
+  <div class="card">
+    <div class="card-inner">
+      <label class="input-label">Case details</label>
+      <textarea class="case-textarea" id="caseInput" placeholder="e.g. 65M, AAA repair, HTN, DM2, EF 35%, on metoprolol and warfarin, last echo 2021, smoker, BMI 34..."></textarea>
+      <label class="chips-label">Quick add comorbidities</label>
+      <div class="chips-wrap">
+        <button class="chip" onclick="toggleChip(this,'HTN')">HTN</button>
+        <button class="chip" onclick="toggleChip(this,'DM')">DM</button>
+        <button class="chip" onclick="toggleChip(this,'CAD')">CAD</button>
+        <button class="chip" onclick="toggleChip(this,'CHF')">CHF</button>
+        <button class="chip" onclick="toggleChip(this,'AFib')">AFib</button>
+        <button class="chip" onclick="toggleChip(this,'CKD')">CKD</button>
+        <button class="chip" onclick="toggleChip(this,'OSA')">OSA</button>
+        <button class="chip" onclick="toggleChip(this,'GERD')">GERD</button>
+        <button class="chip" onclick="toggleChip(this,'Obesity')">Obesity</button>
+        <button class="chip" onclick="toggleChip(this,'Smoker')">Smoker</button>
+        <button class="chip" onclick="toggleChip(this,'COPD')">COPD</button>
+        <button class="chip" onclick="toggleChip(this,'Cirrhosis')">Cirrhosis</button>
+        <button class="chip" onclick="toggleChip(this,'Coagulopathy')">Coagulopathy</button>
+        <button class="chip" onclick="toggleChip(this,'Anticoagulated')">Anticoagulated</button>
+        <button class="chip" onclick="toggleChip(this,'Full stomach')">Full stomach</button>
+        <button class="chip" onclick="toggleChip(this,'Difficult airway')">Difficult airway</button>
+        <button class="chip" onclick="toggleChip(this,'Renal failure')">Renal failure</button>
+        <button class="chip" onclick="toggleChip(this,'Liver disease')">Liver disease</button>
+        <button class="chip" onclick="toggleChip(this,'Steroid use')">Steroid use</button>
+        <button class="chip" onclick="toggleChip(this,'Pacemaker/ICD')">Pacemaker/ICD</button>
+      </div>
+      <div class="divider"></div>
+      <button class="analyse-btn" id="analyseBtn" onclick="analyseCase()">Analyse case →</button>
+    </div>
+  </div>
+</div>
+ 
+<div class="loading-wrap" id="loadingWrap">
+  <div class="loading-dots"><span></span><span></span><span></span></div>
+  <div class="loading-text">Analysing case...</div>
+</div>
+ 
+<div class="error-banner" id="errorBanner"></div>
+ 
+<div class="new-case-wrap" id="newCaseWrap">
+  <button class="new-case-btn" onclick="resetCase()">← New case</button>
+</div>
+ 
+<div class="alerts-section" id="alertsSection"></div>
+<div class="results-section" id="resultsSection"></div>
+ 
+<script>
+const activeChips = new Set();
+ 
+function toggleChip(el, label) {
+  if (activeChips.has(label)) { activeChips.delete(label); el.classList.remove('active'); }
+  else { activeChips.add(label); el.classList.add('active'); }
+}
+ 
+function toggleResult(id) {
+  const body = document.getElementById('rb-' + id);
+  const chev = document.getElementById('rc-' + id);
+  const prev = document.getElementById('rp-' + id);
+  body.classList.toggle('open');
+  chev.classList.toggle('open');
+  if (prev) prev.style.display = body.classList.contains('open') ? 'none' : 'block';
+}
+ 
+async function analyseCase() {
+  const text = document.getElementById('caseInput').value.trim();
+  const chips = Array.from(activeChips);
+  if (!text && !chips.length) {
+    showError('Please enter case details or select at least one comorbidity.');
+    return;
+  }
+  document.getElementById('errorBanner').style.display = 'none';
+  const fullInput = text + (chips.length ? (text ? '\nAdditional comorbidities: ' : '') + chips.join(', ') : '');
+  document.getElementById('inputSection').style.display = 'none';
+  document.getElementById('loadingWrap').style.display = 'block';
+ 
+  const sys = `You are an expert anesthesiologist providing concise, high-yield perioperative guidance for a colleague. Respond ONLY with valid JSON, no markdown:
+{
+  "alerts": ["high-yield missing workup or critical flags only — max 4, empty array if none"],
+  "preop": { "summary": "one sentence", "items": ["max 12 words each"] },
+  "intraop": { "summary": "one sentence", "items": ["max 12 words each"] },
+  "maintenance": { "summary": "one sentence", "items": ["max 12 words each"] },
+  "emergence": { "summary": "one sentence", "items": ["max 12 words each"] }
+}
+Rules: concise, actionable only. For vascular/cardiac include specific drips and haemodynamic targets. Alerts: only flag things a senior attending would flag — not routine labs. No generic statements that apply to every case.`;
+ 
+  try {
+    const res = await fetch('/api/analyse', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ system: sys, content: [{ type: 'text', text: 'Case: ' + fullInput }] })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'API error');
+    const json = JSON.parse(data.result.replace(/```json|```/g, '').trim());
+    document.getElementById('loadingWrap').style.display = 'none';
+    renderResults(json);
+  } catch(err) {
+    document.getElementById('loadingWrap').style.display = 'none';
+    document.getElementById('inputSection').style.display = 'block';
+    showError('Could not analyse — ' + err.message);
+  }
+}
+ 
+function showError(msg) {
+  const b = document.getElementById('errorBanner');
+  b.textContent = msg; b.style.display = 'block';
+}
+ 
+function renderResults(data) {
+  if (data.alerts && data.alerts.length) {
+    let html = '<div class="alert-banner"><div class="alert-banner-title">⚠ Consider / missing workup</div>';
+    data.alerts.forEach(function(a) { html += '<div class="alert-item"><div class="alert-dot"></div>' + a + '</div>'; });
+    html += '</div>';
+    document.getElementById('alertsSection').innerHTML = html;
+    document.getElementById('alertsSection').style.display = 'block';
+  }
+ 
+  const sections = [
+    { key: 'preop',       title: 'Pre-op',          icon: '📋', cls: 'rc-blue'   },
+    { key: 'intraop',     title: 'Intra-op setup',  icon: '🔧', cls: 'rc-amber'  },
+    { key: 'maintenance', title: 'Maintenance',      icon: '⚡', cls: 'rc-orange' },
+    { key: 'emergence',   title: 'Emergence',        icon: '🟢', cls: 'rc-green'  },
+  ];
+ 
+  let html = '';
+  sections.forEach(function(s, idx) {
+    const d = data[s.key];
+    if (!d) return;
+    const itemsHtml = (d.items || []).map(function(item) {
+      return '<div class="result-item"><div class="result-item-dot"></div><div>' + item + '</div></div>';
+    }).join('');
+    html += '<div class="result-card ' + s.cls + '">' +
+      '<div class="result-header" onclick="toggleResult(' + idx + ')">' +
+        '<div class="result-header-left">' +
+          '<div class="result-icon">' + s.icon + '</div>' +
+          '<div style="min-width:0">' +
+            '<div class="result-title">' + s.title + '</div>' +
+            '<div class="result-preview" id="rp-' + idx + '">' + (d.summary || '') + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="result-chevron open" id="rc-' + idx + '">▾</div>' +
+      '</div>' +
+      '<div class="result-body open" id="rb-' + idx + '">' + itemsHtml + '</div>' +
+    '</div>';
+  });
+ 
+  const rs = document.getElementById('resultsSection');
+  rs.innerHTML = html;
+  rs.style.display = 'block';
+  document.getElementById('newCaseWrap').style.display = 'block';
+ 
+  // Hide previews since expanded
+  sections.forEach(function(s, idx) {
+    const p = document.getElementById('rp-' + idx);
+    if (p) p.style.display = 'none';
+  });
+ 
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+ 
+function resetCase() {
+  document.getElementById('inputSection').style.display = 'block';
+  document.getElementById('resultsSection').style.display = 'none';
+  document.getElementById('alertsSection').style.display = 'none';
+  document.getElementById('newCaseWrap').style.display = 'none';
+  document.getElementById('errorBanner').style.display = 'none';
+  document.getElementById('alertsSection').innerHTML = '';
+  document.getElementById('resultsSection').innerHTML = '';
+  document.getElementById('caseInput').value = '';
+  activeChips.clear();
+  document.querySelectorAll('.chip').forEach(function(c) { c.classList.remove('active'); });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
