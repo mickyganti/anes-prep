@@ -363,11 +363,8 @@ function renderDrugCard(drugs, weight) {
     { key: 'maintenance', label: 'Maintenance' },
     { key: 'emergence',   label: 'Emergence' },
   ];
-  var hasAny = groups.some(function(g) { return drugs[g.key] && drugs[g.key].length; });
-  if (!hasAny) return '';
 
-  var inner = '';
-  // Always ensure core drugs are present in correct phases
+  // Always ensure core drugs are present — do this BEFORE hasAny check
   if (!drugs.induction) drugs.induction = [];
   if (!drugs.emergence) drugs.emergence = [];
 
@@ -385,6 +382,11 @@ function renderDrugCard(drugs, weight) {
     drugs.emergence.push({ name: 'Glycopyrrolate', mgkg: '0.01', mg: null });
     drugs.emergence.push({ name: 'Neostigmine', mgkg: '0.04', mg: null });
   }
+
+  var hasAny = groups.some(function(g) { return drugs[g.key] && drugs[g.key].length; });
+  if (!hasAny) return '';
+
+  var inner = '';
 
   groups.forEach(function(g) {
     var list = drugs[g.key];
