@@ -22,22 +22,18 @@
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; max-width: 480px; margin: 0 auto; }
 
-/* HEADER */
 .header { background: var(--surface); padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
 .header-icon { width: 36px; height: 36px; background: var(--text); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
 .header-title { font-size: 18px; font-weight: 600; letter-spacing: -0.4px; }
 .header-sub { font-size: 12px; color: var(--text2); margin-top: 1px; }
 
-/* TABS */
 .tab-bar { background: var(--surface); border-bottom: 1px solid var(--border); display: flex; position: sticky; top: 0; z-index: 20; }
 .tab-btn { flex: 1; padding: 0.875rem 0.5rem; border: none; background: none; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text2); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s; }
 .tab-btn.active { color: var(--text); border-bottom-color: var(--text); }
 
-/* PAGES */
 .page { display: none; }
 .page.active { display: block; }
 
-/* INPUT */
 .input-section { padding: 1.25rem; }
 .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; }
 .card-inner { padding: 1.25rem; }
@@ -54,7 +50,6 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
 .analyse-btn { width: 100%; padding: 14px; border: none; border-radius: var(--radius-sm); background: var(--text); color: #fff; font-size: 15px; font-family: inherit; font-weight: 600; cursor: pointer; transition: all 0.15s; }
 .analyse-btn:active { transform: scale(0.98); background: #333; }
 
-/* LOADING */
 .loading-wrap { display: none; padding: 2.5rem 1.25rem; text-align: center; }
 .loading-dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
 .loading-dots span { width: 8px; height: 8px; background: var(--text3); border-radius: 50%; animation: bounce 1.2s ease-in-out infinite; }
@@ -63,14 +58,12 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
 @keyframes bounce { 0%,80%,100% { transform: scale(0.7); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
 .loading-text { font-size: 13px; color: var(--text2); }
 
-/* ALERTS */
 .alerts-section { padding: 0 1.25rem 4px; display: none; }
 .alert-banner { background: var(--amber-light); border: 1px solid var(--amber-border); border-radius: var(--radius-sm); padding: 0.875rem 1rem; }
 .alert-banner-title { font-size: 11px; font-weight: 600; color: var(--amber); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
 .alert-item { font-size: 13px; color: #92400e; line-height: 1.6; padding: 3px 0; display: flex; align-items: flex-start; gap: 8px; }
 .alert-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 7px; }
 
-/* RESULT CARDS */
 .results-section { padding: 0 1.25rem 2rem; display: none; }
 .result-card { border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-sm); margin-bottom: 10px; overflow: hidden; border-left: 4px solid transparent; animation: slideUp 0.3s cubic-bezier(.4,0,.2,1) both; }
 @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
@@ -107,24 +100,20 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
 .rc-orange .result-item-dot { background: var(--orange); }
 .rc-green  .result-item-dot { background: var(--green); }
 
-/* ACTION BUTTONS */
-.action-row { padding: 0 1.25rem 0.75rem; display: none; gap: 8px; display: none; }
+.action-row { padding: 0 1.25rem 0.75rem; gap: 8px; display: none; }
 .action-row.visible { display: flex; }
-.btn-secondary { flex: 1; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--text2); font-size: 13px; font-family: inherit; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+.btn-secondary { flex: 1; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--text2); font-size: 13px; font-family: inherit; font-weight: 500; cursor: pointer; }
 .btn-secondary:active { background: var(--surface2); }
-.btn-save { flex: 1; padding: 12px; border: none; border-radius: var(--radius-sm); background: var(--text); color: #fff; font-size: 13px; font-family: inherit; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+.btn-save { flex: 1; padding: 12px; border: none; border-radius: var(--radius-sm); background: var(--text); color: #fff; font-size: 13px; font-family: inherit; font-weight: 500; cursor: pointer; }
 .btn-save:active { background: #333; }
 .btn-save.saved { background: var(--green); }
-
 .error-banner { background: var(--red-light); border: 1px solid var(--red-border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin: 0 1.25rem 1rem; font-size: 13px; color: var(--red); display: none; }
 
-/* HISTORY PAGE */
 .hist-header { padding: 1.25rem 1.25rem 0.75rem; }
 .hist-header h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }
 .hist-header p { font-size: 13px; color: var(--text2); margin-top: 3px; }
 .hist-empty { text-align: center; padding: 4rem 2rem; color: var(--text2); font-size: 14px; line-height: 1.7; }
 .hist-empty-icon { font-size: 36px; margin-bottom: 12px; }
-
 .hist-card { background: var(--surface); border-radius: var(--radius); margin: 0 1.25rem 10px; box-shadow: var(--shadow-sm); overflow: hidden; }
 .hist-card-header { padding: 1rem 1.25rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .hist-card-title { font-size: 14px; font-weight: 600; line-height: 1.4; flex: 1; }
@@ -138,15 +127,32 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
 .hist-preview-row:last-child { border-bottom: none; }
 .hist-section-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
 .hist-expand-btn { width: 100%; padding: 10px; border: none; background: var(--surface2); color: var(--text2); font-size: 12px; font-family: inherit; cursor: pointer; border-top: 1px solid var(--border); }
-.hist-expand-btn:active { background: var(--border); }
 .hist-full { display: none; }
 .hist-full.open { display: block; }
+
+/* REFERENCE */
+.ref-card { background: var(--surface); border-radius: var(--radius); margin: 0 1.25rem 10px; box-shadow: var(--shadow-sm); overflow: hidden; border-left: 4px solid transparent; }
+.ref-card:nth-child(2) { border-left-color: var(--blue); }
+.ref-card:nth-child(3) { border-left-color: var(--red); }
+.ref-card:nth-child(4) { border-left-color: var(--green); }
+.ref-header { padding: 1rem 1.25rem; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.ref-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.ref-title { font-size: 14px; font-weight: 600; flex: 1; }
+.ref-sub { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.ref-chev { color: var(--text3); font-size: 16px; transition: transform 0.2s; flex-shrink: 0; }
+.ref-chev.open { transform: rotate(180deg); }
+.ref-body { display: none; border-top: 1px solid var(--border); padding: 1rem 1.25rem; }
+.ref-body.open { display: block; }
+.ref-section-label { font-size: 10px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.07em; margin: 12px 0 6px; }
+.ref-section-label:first-child { margin-top: 0; }
+.ref-item { font-size: 13px; color: var(--text); line-height: 1.6; padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; align-items: flex-start; }
+.ref-item:last-child { border-bottom: none; }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="header-icon">🫁</div>
+  <div class="header-icon">&#129753;</div>
   <div>
     <div class="header-title">AnesPrep</div>
     <div class="header-sub">Anesthesia case planning</div>
@@ -156,16 +162,15 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
 <div class="tab-bar">
   <button class="tab-btn active" id="tab-new" onclick="showPage('new', this)">New case</button>
   <button class="tab-btn" id="tab-history" onclick="showPage('history', this)">History</button>
+  <button class="tab-btn" id="tab-ref" onclick="showPage('ref', this)">Reference</button>
 </div>
 
-<!-- NEW CASE PAGE -->
 <div class="page active" id="page-new">
-
   <div class="input-section" id="inputSection">
     <div class="card">
       <div class="card-inner">
         <label class="input-label">Case details</label>
-        <textarea class="case-textarea" id="caseInput" placeholder="e.g. 65M, AAA repair, HTN, DM2, EF 35%, on metoprolol and warfarin, last echo 2021, smoker, BMI 34..."></textarea>
+        <textarea class="case-textarea" id="caseInput" placeholder="e.g. 65M 80kg, AAA repair, HTN, DM2, EF 35%, on metoprolol and warfarin, last echo 2021, smoker, BMI 34..."></textarea>
         <label class="chips-label">Quick add comorbidities</label>
         <div class="chips-wrap">
           <button class="chip" onclick="toggleChip(this,'HTN')">HTN</button>
@@ -190,7 +195,7 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
           <button class="chip" onclick="toggleChip(this,'Pacemaker/ICD')">Pacemaker/ICD</button>
         </div>
         <div class="divider"></div>
-        <button class="analyse-btn" onclick="analyseCase()">Analyse case →</button>
+        <button class="analyse-btn" onclick="analyseCase()">Analyse case &#8594;</button>
       </div>
     </div>
   </div>
@@ -203,16 +208,14 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
   <div class="error-banner" id="errorBanner"></div>
 
   <div class="action-row" id="actionRow">
-    <button class="btn-secondary" onclick="resetCase()">← New case</button>
+    <button class="btn-secondary" onclick="resetCase()">&#8592; New case</button>
     <button class="btn-save" id="saveBtn" onclick="saveCase()">Save to history</button>
   </div>
 
   <div class="alerts-section" id="alertsSection"></div>
   <div class="results-section" id="resultsSection"></div>
-
 </div>
 
-<!-- HISTORY PAGE -->
 <div class="page" id="page-history">
   <div class="hist-header">
     <h2>History</h2>
@@ -221,27 +224,191 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
   <div id="historyContent"></div>
 </div>
 
+<div class="page" id="page-ref">
+  <div class="hist-header">
+    <h2>Reference</h2>
+    <p>High-yield clinical guides</p>
+  </div>
+
+  <!-- Difficult Airway -->
+  <div class="ref-card" id="ref0">
+    <div class="ref-header" onclick="toggleRef(0)">
+      <div class="ref-icon" style="background:#eff6ff;">&#9992;</div>
+      <div>
+        <div class="ref-title" style="color:#2563eb;">Difficult airway algorithm</div>
+        <div class="ref-sub">ASA 2022 guidelines</div>
+      </div>
+      <div class="ref-chev open" id="refchev0">&#9662;</div>
+    </div>
+    <div class="ref-body open" id="refbody0">
+      <div class="ref-section-label">Step 1 — assess before every case</div>
+      <div class="ref-item">Mallampati III/IV, thyromental distance &lt;6cm, sternomental &lt;12cm</div>
+      <div class="ref-item">Neck circumference &gt;40cm, limited mouth opening, limited neck mobility</div>
+      <div class="ref-item">History of difficult airway, stridor, neck mass, radiation, obesity</div>
+
+      <div class="ref-section-label">Awake intubation — consider when:</div>
+      <div class="ref-item">Expected difficult intubation PLUS any of: difficult ventilation, aspiration risk, cannot tolerate apnea, difficult emergency invasive airway</div>
+      <div class="ref-item">Techniques: flexible bronchoscope, videolaryngoscopy, DL, retrograde wire</div>
+      <div class="ref-item">Optimize O2 throughout — HFNC 30-70 L/min, head elevated, apneic oxygenation</div>
+
+      <div class="ref-section-label">After induction — unanticipated difficult airway</div>
+      <div class="ref-item">&#9654; Call for help immediately</div>
+      <div class="ref-item">&#9654; Start with videolaryngoscope (preferred over DL)</div>
+      <div class="ref-item">&#9654; Can't see cords → bougie + VL → hyperangulated blade → flexible scope</div>
+      <div class="ref-item">&#9654; Limit attempts (3 + 1 by more experienced provider)</div>
+      <div class="ref-item">&#9654; Watch elapsed time and SpO2 constantly</div>
+
+      <div class="ref-section-label">Can ventilate / cannot intubate</div>
+      <div class="ref-item">Non-emergency pathway: consider awakening patient, SGA, alternative technique</div>
+      <div class="ref-item">Limit attempts — fixation on intubation wastes time</div>
+
+      <div class="ref-section-label">Cannot intubate / Cannot oxygenate (CICO)</div>
+      <div class="ref-item" style="font-weight:600;color:#dc2626;">Emergency — call for help NOW</div>
+      <div class="ref-item">Surgical cricothyrotomy: scalpel → bougie → ETT (6.0)</div>
+      <div class="ref-item">Needle cric + pressure regulated device as bridge</div>
+      <div class="ref-item">Consider ECMO if invasive approach fails</div>
+      <div class="ref-item">Brain damage in 4 min, death in 4-6 min from anoxia — do not delay</div>
+
+      <div class="ref-section-label">Extubation of difficult airway</div>
+      <div class="ref-item">Place airway exchange catheter before extubating</div>
+      <div class="ref-item">Extubate awake, in optimal position, with team present</div>
+      <div class="ref-item">Document and communicate difficult airway to patient and chart</div>
+    </div>
+  </div>
+
+  <!-- Transfusion -->
+  <div class="ref-card" id="ref1">
+    <div class="ref-header" onclick="toggleRef(1)">
+      <div class="ref-icon" style="background:#fef2f2;">&#129656;</div>
+      <div>
+        <div class="ref-title" style="color:#dc2626;">Transfusion therapy</div>
+        <div class="ref-sub">High-yield thresholds and triggers</div>
+      </div>
+      <div class="ref-chev open" id="refchev1">&#9662;</div>
+    </div>
+    <div class="ref-body open" id="refbody1">
+      <div class="ref-section-label">PRBCs — 1 unit raises Hgb ~1 g/dL, Hct ~3%</div>
+      <div class="ref-item">Transfuse at Hgb &lt;7 g/dL in most patients</div>
+      <div class="ref-item">Transfuse at Hgb &lt;8 g/dL in cardiac surgery, symptomatic CAD</div>
+      <div class="ref-item">Hgb &gt;10 g/dL — transfusion rarely indicated</div>
+      <div class="ref-item">Symptomatic anemia (SOB, chest pain, hemodynamic instability) overrides threshold</div>
+
+      <div class="ref-section-label">FFP — contains all coagulation factors</div>
+      <div class="ref-item">Dose: 10-15 mL/kg raises clotting factors ~15%</div>
+      <div class="ref-item">Transfuse for: active bleeding + coagulopathy, INR &gt;1.5 with bleeding</div>
+      <div class="ref-item">Massive transfusion: give FFP:PRBC in 1:1 ratio</div>
+      <div class="ref-item">Warfarin reversal: prefer PCC over FFP (faster, less volume)</div>
+
+      <div class="ref-section-label">Platelets — 1 apheresis unit raises count ~30,000-60,000</div>
+      <div class="ref-item">Prophylactic: transfuse if &lt;10,000 (stable) or &lt;20,000 (febrile/unstable)</div>
+      <div class="ref-item">Pre-procedure: maintain &gt;50,000</div>
+      <div class="ref-item">Active bleeding / neuro surgery: maintain &gt;100,000</div>
+      <div class="ref-item">Do NOT transfuse in HIT or TTP — worsens thrombosis</div>
+
+      <div class="ref-section-label">Cryoprecipitate — fibrinogen + factor VIII + vWF + XIII</div>
+      <div class="ref-item">Transfuse when fibrinogen &lt;150 mg/dL with bleeding (or &lt;200 mg/dL in DIC)</div>
+      <div class="ref-item">10-unit pool raises fibrinogen ~70 mg/dL</div>
+      <div class="ref-item">Use for: massive hemorrhage, DIC, vWD, hemophilia A (if specific factor unavailable)</div>
+
+      <div class="ref-section-label">LAST — local anesthetic systemic toxicity</div>
+      <div class="ref-item">Signs: perioral numbness, tinnitus, metallic taste → seizures → cardiovascular collapse</div>
+      <div class="ref-item">Treatment: Intralipid 20% — bolus 1.5 mL/kg IV over 1 min, then infusion 0.25 mL/kg/min</div>
+      <div class="ref-item">Bupivacaine most cardiotoxic — avoid in Bier blocks</div>
+    </div>
+  </div>
+
+  <!-- Local Anesthetics -->
+  <div class="ref-card" id="ref2">
+    <div class="ref-header" onclick="toggleRef(2)">
+      <div class="ref-icon" style="background:#f0fdf4;">&#128138;</div>
+      <div>
+        <div class="ref-title" style="color:#16a34a;">Local anesthetic max doses</div>
+        <div class="ref-sub">Without / with epinephrine</div>
+      </div>
+      <div class="ref-chev open" id="refchev2">&#9662;</div>
+    </div>
+    <div class="ref-body open" id="refbody2">
+      <div style="display:grid;grid-template-columns:1fr auto auto;gap:0 10px;margin-bottom:8px;">
+        <div style="font-size:10px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding-bottom:6px;">Agent</div>
+        <div style="font-size:10px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;text-align:right;padding-bottom:6px;">Plain</div>
+        <div style="font-size:10px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;text-align:right;padding-bottom:6px;">+ Epi</div>
+
+        <div style="font-size:13px;font-weight:500;border-top:1px solid var(--border);padding:6px 0;">Lidocaine</div>
+        <div style="font-size:12px;color:var(--text2);text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">4.5 mg/kg</div>
+        <div style="font-size:12px;font-weight:600;text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">7 mg/kg</div>
+
+        <div style="font-size:13px;font-weight:500;border-top:1px solid var(--border);padding:6px 0;">Bupivacaine</div>
+        <div style="font-size:12px;color:var(--text2);text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">2 mg/kg</div>
+        <div style="font-size:12px;font-weight:600;text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">3 mg/kg</div>
+
+        <div style="font-size:13px;font-weight:500;border-top:1px solid var(--border);padding:6px 0;">Ropivacaine</div>
+        <div style="font-size:12px;color:var(--text2);text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">3 mg/kg</div>
+        <div style="font-size:12px;font-weight:600;text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">3.5 mg/kg</div>
+
+        <div style="font-size:13px;font-weight:500;border-top:1px solid var(--border);padding:6px 0;">Mepivacaine</div>
+        <div style="font-size:12px;color:var(--text2);text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">4.4 mg/kg</div>
+        <div style="font-size:12px;font-weight:600;text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">6.6 mg/kg</div>
+
+        <div style="font-size:13px;font-weight:500;border-top:1px solid var(--border);padding:6px 0;">Chloroprocaine</div>
+        <div style="font-size:12px;color:var(--text2);text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">11 mg/kg</div>
+        <div style="font-size:12px;font-weight:600;text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">14 mg/kg</div>
+
+        <div style="font-size:13px;font-weight:500;border-top:1px solid var(--border);padding:6px 0;">Prilocaine</div>
+        <div style="font-size:12px;color:var(--text2);text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">6 mg/kg</div>
+        <div style="font-size:12px;font-weight:600;text-align:right;border-top:1px solid var(--border);padding:6px 0;font-family:'DM Mono',monospace;">8 mg/kg</div>
+      </div>
+
+      <div class="ref-section-label">High-yield pearls</div>
+      <div class="ref-item">Amides (lidocaine, bupivacaine, ropivacaine) — metabolized by liver</div>
+      <div class="ref-item">Esters (chloroprocaine, tetracaine) — metabolized by plasma cholinesterase</div>
+      <div class="ref-item">Bupivacaine most cardiotoxic — high protein binding → hard to displace from cardiac Na channels</div>
+      <div class="ref-item">Ropivacaine — less cardiotoxic alternative to bupivacaine for nerve blocks</div>
+      <div class="ref-item">Epi extends duration and reduces systemic absorption — avoid in end-arterial blocks (digits, penis, nose)</div>
+      <div class="ref-item">LAST signs: perioral numbness → tinnitus → seizures → cardiac arrest</div>
+      <div class="ref-item" style="font-weight:600;color:#dc2626;">LAST treatment: Intralipid 20% — 1.5 mL/kg bolus, then 0.25 mL/kg/min infusion</div>
+      <div class="ref-item">Methemoglobinemia risk: prilocaine, benzocaine — treat with methylene blue 1-2 mg/kg</div>
+    </div>
+  </div>
+
+  <div style="height:2rem;"></div>
+</div>
+
 <script>
 const SECTIONS = [
-  { key: 'preop',       title: 'Pre-op',         icon: '📋', cls: 'rc-blue',   color: '#2563eb' },
-  { key: 'intraop',     title: 'Intra-op setup', icon: '🔧', cls: 'rc-amber',  color: '#d97706' },
-  { key: 'induction',   title: 'Induction',      icon: '💉', cls: 'rc-purple', color: '#7c3aed' },
-  { key: 'maintenance', title: 'Maintenance',     icon: '⚡', cls: 'rc-orange', color: '#ea580c' },
-  { key: 'emergence',   title: 'Emergence',       icon: '🟢', cls: 'rc-green',  color: '#16a34a' },
+  { key: 'preop',       title: 'Pre-op',         icon: '&#128203;', cls: 'rc-blue',   color: '#2563eb' },
+  { key: 'intraop',     title: 'Intra-op setup', icon: '&#128295;', cls: 'rc-amber',  color: '#d97706' },
+  { key: 'induction',   title: 'Induction',      icon: '&#128137;', cls: 'rc-purple', color: '#7c3aed' },
+  { key: 'maintenance', title: 'Maintenance',     icon: '&#9889;',   cls: 'rc-orange', color: '#ea580c' },
+  { key: 'emergence',   title: 'Emergence',       icon: '&#128994;', cls: 'rc-green',  color: '#16a34a' },
 ];
 
-const activeChips = new Set();
-let currentResult = null;
-let currentInput = '';
-let currentWeight = null;
+const DRUG_LIST = {
+  induction: [
+    { name: 'Lidocaine',       mgkg: '1-1.5',    note: 'airway topicalization / blunt laryngoscopy' },
+    { name: 'Propofol',        mgkg: '1.5-2.5',  note: 'reduce to 1-1.5 in elderly/unstable' },
+    { name: 'Etomidate',       mgkg: '0.2-0.3',  note: 'hemodynamically unstable' },
+    { name: 'Succinylcholine', mgkg: '1-1.5',    note: 'depolarizing NMB / RSI' },
+    { name: 'Rocuronium',      mgkg: '0.6-1.2',  note: '0.6 intubating, 1.2 for RSI' },
+  ],
+  emergence: [
+    { name: 'Sugammadex',      mgkg: '2-4',      note: '2 mod block (TOF >= 2), 4 deep block' },
+    { name: 'Neostigmine',     mgkg: '0.04-0.07',note: 'give with glycopyrrolate' },
+    { name: 'Glycopyrrolate',  mgkg: '0.01',     note: 'with neostigmine' },
+    { name: 'Ondansetron',     mgkg: '0.1',      note: 'max 4 mg' },
+  ],
+};
 
-function extractWeight(text) {
-  // Match patterns like: 80kg, 80 kg, 176lbs, 176 lbs, 176lb
-  var kgMatch = text.match(/(\d+\.?\d*)\s*kg/i);
-  if (kgMatch) return parseFloat(kgMatch[1]);
-  var lbMatch = text.match(/(\d+\.?\d*)\s*lb/i);
-  if (lbMatch) return Math.round(parseFloat(lbMatch[1]) * 0.4536 * 10) / 10;
-  return null;
+var activeChips = new Set();
+var currentResult = null;
+var currentInput = '';
+var currentWeight = null;
+
+function toggleRef(idx) {
+  var body = document.getElementById('refbody' + idx);
+  var chev = document.getElementById('refchev' + idx);
+  if (!body) return;
+  body.classList.toggle('open');
+  if (chev) chev.classList.toggle('open');
 }
 
 function showPage(name, btn) {
@@ -267,17 +434,26 @@ function toggleResult(id) {
   if (prev) prev.style.display = body.classList.contains('open') ? 'none' : 'block';
 }
 
+function extractWeight(text) {
+  var kgMatch = text.match(/(\d+\.?\d*)\s*kg/i);
+  if (kgMatch) return parseFloat(kgMatch[1]);
+  var lbMatch = text.match(/(\d+\.?\d*)\s*lb/i);
+  if (lbMatch) return Math.round(parseFloat(lbMatch[1]) * 0.4536 * 10) / 10;
+  return null;
+}
+
 async function analyseCase() {
   var text = document.getElementById('caseInput').value.trim();
   var chips = Array.from(activeChips);
   if (!text && !chips.length) { showError('Please enter case details or select at least one comorbidity.'); return; }
   document.getElementById('errorBanner').style.display = 'none';
   currentInput = text + (chips.length ? (text ? '\nComorbidities: ' : '') + chips.join(', ') : '');
+  currentWeight = extractWeight(currentInput);
   document.getElementById('inputSection').style.display = 'none';
   document.getElementById('loadingWrap').style.display = 'block';
   document.getElementById('actionRow').classList.remove('visible');
 
-  var sys = 'You are an expert anesthesiologist providing concise, high-yield perioperative guidance for a colleague. Respond ONLY with valid JSON, no markdown, no extra text:\n{"alerts":["high-yield missing workup or critical flags only, max 4, empty array if none"],"preop":{"summary":"one sentence","items":["concise bullet, max 12 words"]},"intraop":{"summary":"one sentence","items":["concise bullet, max 12 words"]},"induction":{"summary":"one sentence","items":["include induction agent and dose, intubation technique, RSI if indicated, airway plan, max 12 words each"]},"maintenance":{"summary":"one sentence","items":["concise bullet, max 12 words"]},"emergence":{"summary":"one sentence","items":["concise bullet, max 12 words"]},"drugs":{"preop":[{"name":"drug name","mgkg":"dose in mg/kg or mcg/kg","mg":null}],"induction":[{"name":"drug name","mgkg":"dose range mg/kg","mg":null}],"maintenance":[{"name":"drug name","mgkg":"infusion rate or dose","mg":null}],"emergence":[{"name":"drug name","mgkg":"dose mg/kg","mg":null}]}}\nFor the drugs section: list only drugs that are specifically relevant to this case — not every possible drug. Use standard clinical doses. The mg field should be null (the app will calculate it from weight if provided). Include premedications in preop, induction agents/paralytic/airway in induction, infusions/volatiles in maintenance, reversal/antiemetics/analgesics in emergence. Keep each list to 3-6 most relevant drugs.\nRules: actionable only. For vascular/cardiac include specific drips and haemodynamic targets. Alerts: only flag things a senior attending would flag. No generic statements.';
+  var sys = 'You are an expert anesthesiologist providing concise, high-yield perioperative guidance for a colleague. Respond ONLY with valid JSON, no markdown, no extra text:\n{"alerts":["high-yield missing workup or critical flags only, max 4, empty array if none"],"preop":{"summary":"one sentence","items":["concise bullet, max 12 words"]},"intraop":{"summary":"one sentence","items":["concise bullet, max 12 words"]},"induction":{"summary":"one sentence","items":["intubation technique, RSI if indicated, airway plan, max 12 words each"]},"maintenance":{"summary":"one sentence","items":["concise bullet, max 12 words"]},"emergence":{"summary":"one sentence","items":["concise bullet, max 12 words"]}}\nRules: actionable only. For vascular/cardiac include specific drips and haemodynamic targets. Alerts: only flag things a senior attending would flag. No generic statements.';
 
   try {
     var res = await fetch('/api/analyse', {
@@ -289,7 +465,6 @@ async function analyseCase() {
     if (!res.ok) throw new Error(data.error || 'API error');
     var json = JSON.parse(data.result.replace(/```json|```/g, '').trim());
     currentResult = json;
-    currentWeight = extractWeight(currentInput);
     document.getElementById('loadingWrap').style.display = 'none';
     renderResults(json, currentWeight);
   } catch(err) {
@@ -306,17 +481,15 @@ function showError(msg) {
 
 function renderResults(data, weight) {
   weight = weight || null;
-  // Alerts
   var alertsSec = document.getElementById('alertsSection');
   if (data.alerts && data.alerts.length) {
-    var ahtml = '<div class="alert-banner"><div class="alert-banner-title">⚠ Consider / missing workup</div>';
+    var ahtml = '<div class="alert-banner"><div class="alert-banner-title">&#9888; Consider / missing workup</div>';
     data.alerts.forEach(function(a) { ahtml += '<div class="alert-item"><div class="alert-dot"></div>' + a + '</div>'; });
     ahtml += '</div>';
     alertsSec.innerHTML = ahtml;
     alertsSec.style.display = 'block';
   } else { alertsSec.style.display = 'none'; }
 
-  // Cards
   var html = '';
   SECTIONS.forEach(function(s, idx) {
     var d = data[s.key];
@@ -333,106 +506,74 @@ function renderResults(data, weight) {
             '<div class="result-preview" id="rp-' + idx + '" style="display:none">' + (d.summary || '') + '</div>' +
           '</div>' +
         '</div>' +
-        '<div class="result-chevron open" id="rc-' + idx + '">▾</div>' +
+        '<div class="result-chevron open" id="rc-' + idx + '">&#9662;</div>' +
       '</div>' +
       '<div class="result-body open" id="rb-' + idx + '">' + itemsHtml + '</div>' +
     '</div>';
   });
 
-  // Drug dosing card
-  if (data.drugs) { html += renderDrugCard(data.drugs, weight); }
+  html += renderDrugCard(weight);
 
   var rs = document.getElementById('resultsSection');
   rs.innerHTML = html;
   rs.style.display = 'block';
-
-  var ar = document.getElementById('actionRow');
-  ar.classList.add('visible');
-
+  document.getElementById('actionRow').classList.add('visible');
   var saveBtn = document.getElementById('saveBtn');
   saveBtn.textContent = 'Save to history';
   saveBtn.className = 'btn-save';
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function renderDrugCard(drugs, weight) {
+function renderDrugCard(weight) {
   var groups = [
-    { key: 'preop',       label: 'Pre-op' },
-    { key: 'induction',   label: 'Induction' },
-    { key: 'maintenance', label: 'Maintenance' },
-    { key: 'emergence',   label: 'Emergence' },
+    { key: 'induction',  label: 'Induction' },
+    { key: 'emergence',  label: 'Emergence' },
   ];
-
-  // Always ensure core drugs are present — do this BEFORE hasAny check
-  if (!drugs.induction) drugs.induction = [];
-  if (!drugs.emergence) drugs.emergence = [];
-
-  var hasPropo = drugs.induction.some(function(d) { return d.name.toLowerCase().indexOf('propofol') !== -1; });
-  if (!hasPropo) drugs.induction.unshift({ name: 'Propofol', mgkg: '1.5–2.5', mg: null });
-
-  var hasSux = drugs.induction.some(function(d) { return d.name.toLowerCase().indexOf('succinylcholine') !== -1 || d.name.toLowerCase().indexOf('sux') !== -1; });
-  if (!hasSux) drugs.induction.push({ name: 'Succinylcholine', mgkg: '1–1.5', mg: null });
-
-  var hasSugam = drugs.emergence.some(function(d) { return d.name.toLowerCase().indexOf('sugammadex') !== -1; });
-  if (!hasSugam) drugs.emergence.unshift({ name: 'Sugammadex', mgkg: '2–4', mg: null });
-
-  var hasNeo = drugs.emergence.some(function(d) { return d.name.toLowerCase().indexOf('neostigmine') !== -1 || d.name.toLowerCase().indexOf('glycopyrrolate') !== -1; });
-  if (!hasNeo) {
-    drugs.emergence.push({ name: 'Glycopyrrolate', mgkg: '0.01', mg: null });
-    drugs.emergence.push({ name: 'Neostigmine', mgkg: '0.04', mg: null });
-  }
-
-  var hasAny = groups.some(function(g) { return drugs[g.key] && drugs[g.key].length; });
-  if (!hasAny) return '';
-
   var inner = '';
-
   groups.forEach(function(g) {
-    var list = drugs[g.key];
-    if (!list || !list.length) return;
-    inner += '<div style="margin-bottom:12px;">' +
+    var list = DRUG_LIST[g.key];
+    inner += '<div style="margin-bottom:14px;">' +
       '<div style="font-size:10px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">' + g.label + '</div>' +
       '<div style="display:grid;grid-template-columns:1fr auto auto;gap:0 10px;">' +
       '<div style="font-size:10px;color:var(--text3);padding-bottom:4px;">Drug</div>' +
       '<div style="font-size:10px;color:var(--text3);text-align:right;padding-bottom:4px;">mg/kg</div>' +
       '<div style="font-size:10px;color:var(--text3);text-align:right;padding-bottom:4px;">' + (weight ? weight + ' kg' : 'ref') + '</div>';
-
     list.forEach(function(drug) {
-      var mgDisplay = '—';
-      if (weight && drug.mgkg) {
-        var rangeMatch = drug.mgkg.match(/([\d.]+)\s*[-–]\s*([\d.]+)/);
-        var singleMatch = drug.mgkg.match(/([\d.]+)/);
+      var mgDisplay = '--';
+      if (weight) {
+        var rangeMatch = drug.mgkg.match(/([\d.]+)\s*-\s*([\d.]+)/);
+        var singleMatch = drug.mgkg.match(/^([\d.]+)$/);
         if (rangeMatch) {
           var lo = Math.round(parseFloat(rangeMatch[1]) * weight);
           var hi = Math.round(parseFloat(rangeMatch[2]) * weight);
-          mgDisplay = lo + '–' + hi + ' mg';
+          mgDisplay = lo + '-' + hi + ' mg';
         } else if (singleMatch) {
-          var mg = Math.round(parseFloat(singleMatch[1]) * weight * 10) / 10;
+          var mg = Math.round(parseFloat(singleMatch[1]) * weight * 100) / 100;
           mgDisplay = mg + ' mg';
         }
-      } else if (!weight) {
-        mgDisplay = '—';
       }
-      var borderStyle = 'border-top:1px solid var(--border);padding:5px 0;';
-      inner += '<div style="font-size:13px;font-weight:500;color:var(--text);' + borderStyle + '">' + drug.name + '</div>' +
-        '<div style="font-size:12px;color:var(--text2);text-align:right;' + borderStyle + 'font-family:\'DM Mono\',monospace;">' + (drug.mgkg || '—') + '</div>' +
-        '<div style="font-size:12px;font-weight:600;color:var(--text);text-align:right;' + borderStyle + 'font-family:\'DM Mono\',monospace;">' + mgDisplay + '</div>';
+      var border = 'border-top:1px solid var(--border);padding:5px 0;';
+      inner +=
+        '<div style="font-size:13px;font-weight:500;color:var(--text);' + border + '">' +
+          drug.name +
+          '<div style="font-size:10px;color:var(--text3);font-weight:400;margin-top:1px;">' + drug.note + '</div>' +
+        '</div>' +
+        '<div style="font-size:12px;color:var(--text2);text-align:right;' + border + 'font-family:\'DM Mono\',monospace;">' + drug.mgkg + '</div>' +
+        '<div style="font-size:12px;font-weight:600;color:var(--text);text-align:right;' + border + 'font-family:\'DM Mono\',monospace;">' + mgDisplay + '</div>';
     });
     inner += '</div></div>';
   });
-
-  var weightSubtitle = weight ? 'Calculated for ' + weight + ' kg' : 'No weight detected — showing mg/kg reference only';
+  var subtitle = weight ? 'Calculated for ' + weight + ' kg' : 'No weight -- showing mg/kg reference only';
   return '<div class="result-card" style="border-left:4px solid #64748b;animation-delay:0.3s;">' +
     '<div class="result-header" onclick="toggleResult(99)">' +
       '<div class="result-header-left">' +
-        '<div class="result-icon" style="background:#f1f5f9;">💊</div>' +
+        '<div class="result-icon" style="background:#f1f5f9;">&#128138;</div>' +
         '<div style="min-width:0">' +
           '<div class="result-title" style="color:#475569;">Drug doses</div>' +
-          '<div style="font-size:12px;color:var(--text2);margin-top:2px;">' + weightSubtitle + '</div>' +
+          '<div style="font-size:12px;color:var(--text2);margin-top:2px;">' + subtitle + '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="result-chevron open" id="rc-99">▾</div>' +
+      '<div class="result-chevron open" id="rc-99">&#9662;</div>' +
     '</div>' +
     '<div class="result-body open" id="rb-99" style="padding:1rem 1.25rem;">' + inner + '</div>' +
   '</div>';
@@ -445,23 +586,15 @@ function saveCase() {
   var now = new Date();
   var dateLabel = now.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
   var timeLabel = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-  history.unshift({
-    id: Date.now(),
-    title: title,
-    dateLabel: dateLabel,
-    timeLabel: timeLabel,
-    input: currentInput,
-    result: currentResult
-  });
+  history.unshift({ id: Date.now(), title: title, dateLabel: dateLabel, timeLabel: timeLabel, input: currentInput, result: currentResult });
   localStorage.setItem('anes_history', JSON.stringify(history));
   var saveBtn = document.getElementById('saveBtn');
-  saveBtn.textContent = '✓ Saved';
+  saveBtn.textContent = '&#10003; Saved';
   saveBtn.className = 'btn-save saved';
 }
 
 function resetCase() {
-  currentResult = null;
-  currentInput = '';
+  currentResult = null; currentInput = ''; currentWeight = null;
   document.getElementById('inputSection').style.display = 'block';
   document.getElementById('resultsSection').style.display = 'none';
   document.getElementById('alertsSection').style.display = 'none';
@@ -479,68 +612,42 @@ function renderHistory() {
   var container = document.getElementById('historyContent');
   var history = [];
   try { history = JSON.parse(localStorage.getItem('anes_history') || '[]'); } catch(e) {}
-
   if (!history.length) {
-    container.innerHTML = '<div class="hist-empty"><div class="hist-empty-icon">📂</div><div>No saved cases yet.<br>Analyse a case and tap<br><strong>Save to history</strong> to store it here.</div></div>';
+    container.innerHTML = '<div class="hist-empty"><div class="hist-empty-icon">&#128194;</div><div>No saved cases yet.<br>Analyse a case and tap<br><strong>Save to history</strong> to store it here.</div></div>';
     return;
   }
-
   var html = '';
   history.forEach(function(entry, idx) {
-    // Build a short preview — first item from each section
     var previewHtml = '';
     SECTIONS.forEach(function(s) {
       var d = entry.result[s.key];
       if (d && d.summary) {
-        previewHtml += '<div class="hist-preview-row">' +
-          '<div class="hist-section-dot" style="background:' + s.color + '"></div>' +
-          '<div><strong>' + s.title + '</strong> — ' + d.summary + '</div>' +
-          '</div>';
+        previewHtml += '<div class="hist-preview-row"><div class="hist-section-dot" style="background:' + s.color + '"></div><div><strong>' + s.title + '</strong> &mdash; ' + d.summary + '</div></div>';
       }
     });
-
-    // Full cards (hidden by default)
     var fullHtml = '';
     if (entry.result.alerts && entry.result.alerts.length) {
       fullHtml += '<div style="padding:0.75rem 1.25rem;background:var(--amber-light);border-bottom:1px solid var(--amber-border)">';
-      entry.result.alerts.forEach(function(a) {
-        fullHtml += '<div style="font-size:12px;color:#92400e;padding:2px 0;display:flex;gap:6px;align-items:flex-start"><span>⚠</span>' + a + '</div>';
-      });
+      entry.result.alerts.forEach(function(a) { fullHtml += '<div style="font-size:12px;color:#92400e;padding:2px 0;display:flex;gap:6px;align-items:flex-start"><span>&#9888;</span>' + a + '</div>'; });
       fullHtml += '</div>';
     }
     SECTIONS.forEach(function(s) {
       var d = entry.result[s.key];
       if (!d) return;
-      fullHtml += '<div style="border-bottom:1px solid var(--border)">' +
-        '<div style="padding:0.75rem 1.25rem;display:flex;align-items:center;gap:8px;">' +
-          '<div style="width:6px;height:6px;border-radius:50%;background:' + s.color + ';flex-shrink:0"></div>' +
-          '<div style="font-size:13px;font-weight:600;color:' + s.color + '">' + s.title + '</div>' +
-        '</div>' +
-        '<div style="padding:0 1.25rem 0.75rem">' +
-        (d.items || []).map(function(item) {
-          return '<div style="font-size:12px;color:var(--text);padding:4px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:flex-start;line-height:1.5">' +
-            '<div style="width:5px;height:5px;border-radius:50%;background:' + s.color + ';flex-shrink:0;margin-top:6px"></div>' + item + '</div>';
-        }).join('') +
-        '</div></div>';
+      fullHtml += '<div style="border-bottom:1px solid var(--border)"><div style="padding:0.75rem 1.25rem;display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:' + s.color + ';flex-shrink:0"></div><div style="font-size:13px;font-weight:600;color:' + s.color + '">' + s.title + '</div></div><div style="padding:0 1.25rem 0.75rem">' +
+        (d.items || []).map(function(item) { return '<div style="font-size:12px;color:var(--text);padding:4px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:flex-start;line-height:1.5"><div style="width:5px;height:5px;border-radius:50%;background:' + s.color + ';flex-shrink:0;margin-top:6px"></div>' + item + '</div>'; }).join('') +
+      '</div></div>';
     });
-
-    html += '<div class="hist-card" id="hcard-' + idx + '">' +
+    html += '<div class="hist-card">' +
       '<div class="hist-card-header">' +
-        '<div>' +
-          '<div class="hist-card-title">' + entry.title + '</div>' +
-          '<div class="hist-card-meta">' + entry.dateLabel + ' · ' + entry.timeLabel + '</div>' +
-        '</div>' +
-        '<div class="hist-card-actions">' +
-          '<button class="hist-btn" onclick="deleteCase(' + idx + ')">Delete</button>' +
-          '<button class="hist-btn primary" onclick="loadCase(' + idx + ')">Load</button>' +
-        '</div>' +
+        '<div><div class="hist-card-title">' + entry.title + '</div><div class="hist-card-meta">' + entry.dateLabel + ' &middot; ' + entry.timeLabel + '</div></div>' +
+        '<div class="hist-card-actions"><button class="hist-btn" onclick="deleteCase(' + idx + ')">Delete</button><button class="hist-btn primary" onclick="loadCase(' + idx + ')">Load</button></div>' +
       '</div>' +
       '<div class="hist-preview">' + previewHtml + '</div>' +
-      '<button class="hist-expand-btn" id="hexpbtn-' + idx + '" onclick="toggleHistFull(' + idx + ')">Show full guidance ▾</button>' +
+      '<button class="hist-expand-btn" id="hexpbtn-' + idx + '" onclick="toggleHistFull(' + idx + ')">Show full guidance &#9662;</button>' +
       '<div class="hist-full" id="hfull-' + idx + '">' + fullHtml + '</div>' +
     '</div>';
   });
-
   container.innerHTML = html;
 }
 
@@ -548,7 +655,7 @@ function toggleHistFull(idx) {
   var full = document.getElementById('hfull-' + idx);
   var btn = document.getElementById('hexpbtn-' + idx);
   full.classList.toggle('open');
-  btn.textContent = full.classList.contains('open') ? 'Hide full guidance ▴' : 'Show full guidance ▾';
+  btn.textContent = full.classList.contains('open') ? 'Hide full guidance &#9652;' : 'Show full guidance &#9662;';
 }
 
 function loadCase(idx) {
@@ -558,7 +665,6 @@ function loadCase(idx) {
   currentResult = entry.result;
   currentInput = entry.input;
   currentWeight = extractWeight(entry.input);
-  // Switch to new case tab and show results
   document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
   document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
   document.getElementById('page-new').classList.add('active');
@@ -567,7 +673,7 @@ function loadCase(idx) {
   document.getElementById('caseInput').value = entry.input;
   renderResults(entry.result, currentWeight);
   var saveBtn = document.getElementById('saveBtn');
-  saveBtn.textContent = '✓ Already saved';
+  saveBtn.textContent = '&#10003; Already saved';
   saveBtn.className = 'btn-save saved';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
