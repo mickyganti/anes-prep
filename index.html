@@ -240,39 +240,89 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
       </div>
       <div class="ref-chev open" id="refchev0">&#9662;</div>
     </div>
-    <div class="ref-body open" id="refbody0">
-      <div class="ref-section-label">Step 1 — assess before every case</div>
-      <div class="ref-item">Mallampati III/IV, thyromental distance &lt;6cm, sternomental &lt;12cm</div>
-      <div class="ref-item">Neck circumference &gt;40cm, limited mouth opening, limited neck mobility</div>
-      <div class="ref-item">History of difficult airway, stridor, neck mass, radiation, obesity</div>
+    <div class="ref-body open" id="refbody0" style="padding:0.75rem;">
+      <svg width="100%" viewBox="0 0 420 620" style="display:block;">
+        <defs>
+          <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
 
-      <div class="ref-section-label">Awake intubation — consider when:</div>
-      <div class="ref-item">Expected difficult intubation PLUS any of: difficult ventilation, aspiration risk, cannot tolerate apnea, difficult emergency invasive airway</div>
-      <div class="ref-item">Techniques: flexible bronchoscope, videolaryngoscopy, DL, retrograde wire</div>
-      <div class="ref-item">Optimize O2 throughout — HFNC 30-70 L/min, head elevated, apneic oxygenation</div>
+        <!-- START: Assess -->
+        <rect x="110" y="10" width="200" height="40" rx="20" fill="#f2f1ed" stroke="#b8b5b0" stroke-width="0.5"/>
+        <text x="210" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1816" dominant-baseline="central">Pre-op airway assessment</text>
+        <text x="210" y="44" text-anchor="middle" font-size="10" fill="#8a8780" dominant-baseline="central">Mallampati, TMD, mouth opening, hx</text>
 
-      <div class="ref-section-label">After induction — unanticipated difficult airway</div>
-      <div class="ref-item">&#9654; Call for help immediately</div>
-      <div class="ref-item">&#9654; Start with videolaryngoscope (preferred over DL)</div>
-      <div class="ref-item">&#9654; Can't see cords → bougie + VL → hyperangulated blade → flexible scope</div>
-      <div class="ref-item">&#9654; Limit attempts (3 + 1 by more experienced provider)</div>
-      <div class="ref-item">&#9654; Watch elapsed time and SpO2 constantly</div>
+        <line x1="210" y1="50" x2="210" y2="72" stroke="#8a8780" stroke-width="1" marker-end="url(#aw)"/>
 
-      <div class="ref-section-label">Can ventilate / cannot intubate</div>
-      <div class="ref-item">Non-emergency pathway: consider awakening patient, SGA, alternative technique</div>
-      <div class="ref-item">Limit attempts — fixation on intubation wastes time</div>
+        <!-- Diamond: Anticipated difficult? -->
+        <polygon points="210,72 310,100 210,128 110,100" fill="#eff6ff" stroke="#2563eb" stroke-width="0.5"/>
+        <text x="210" y="96" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af" dominant-baseline="central">Anticipated</text>
+        <text x="210" y="110" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af" dominant-baseline="central">difficult airway?</text>
 
-      <div class="ref-section-label">Cannot intubate / Cannot oxygenate (CICO)</div>
-      <div class="ref-item" style="font-weight:600;color:#dc2626;">Emergency — call for help NOW</div>
-      <div class="ref-item">Surgical cricothyrotomy: scalpel → bougie → ETT (6.0)</div>
-      <div class="ref-item">Needle cric + pressure regulated device as bridge</div>
-      <div class="ref-item">Consider ECMO if invasive approach fails</div>
-      <div class="ref-item">Brain damage in 4 min, death in 4-6 min from anoxia — do not delay</div>
+        <!-- NO branch right -->
+        <line x1="310" y1="100" x2="360" y2="100" stroke="#16a34a" stroke-width="1" marker-end="url(#aw)"/>
+        <text x="333" y="93" text-anchor="middle" font-size="10" fill="#16a34a">No</text>
+        <rect x="360" y="78" width="52" height="44" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+        <text x="386" y="97" text-anchor="middle" font-size="10" font-weight="500" fill="#15803d" dominant-baseline="central">Standard</text>
+        <text x="386" y="111" text-anchor="middle" font-size="10" font-weight="500" fill="#15803d" dominant-baseline="central">induction</text>
 
-      <div class="ref-section-label">Extubation of difficult airway</div>
-      <div class="ref-item">Place airway exchange catheter before extubating</div>
-      <div class="ref-item">Extubate awake, in optimal position, with team present</div>
-      <div class="ref-item">Document and communicate difficult airway to patient and chart</div>
+        <!-- YES branch down -->
+        <line x1="210" y1="128" x2="210" y2="152" stroke="#dc2626" stroke-width="1" marker-end="url(#aw)"/>
+        <text x="218" y="142" font-size="10" fill="#dc2626">Yes</text>
+
+        <!-- Awake intubation box -->
+        <rect x="100" y="152" width="220" height="48" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="0.5"/>
+        <text x="210" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="#991b1b" dominant-baseline="central">Consider awake intubation</text>
+        <text x="210" y="188" text-anchor="middle" font-size="10" fill="#b91c1c" dominant-baseline="central">Flexible scope / VL / DL + topicalization</text>
+
+        <!-- Separator label -->
+        <line x1="40" y1="215" x2="380" y2="215" stroke="#e8e6e0" stroke-width="0.5" stroke-dasharray="4 3"/>
+        <text x="210" y="226" text-anchor="middle" font-size="10" fill="#b8b5b0" dominant-baseline="central">POST-INDUCTION — UNANTICIPATED DIFFICULT AIRWAY</text>
+
+        <line x1="210" y1="233" x2="210" y2="252" stroke="#8a8780" stroke-width="1" marker-end="url(#aw)"/>
+
+        <!-- Call for help -->
+        <rect x="120" y="252" width="180" height="36" rx="8" fill="#f2f1ed" stroke="#8a8780" stroke-width="0.5"/>
+        <text x="210" y="270" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1816" dominant-baseline="central">Call for help + optimize position</text>
+
+        <line x1="210" y1="288" x2="210" y2="308" stroke="#8a8780" stroke-width="1" marker-end="url(#aw)"/>
+
+        <!-- VL attempt -->
+        <rect x="100" y="308" width="220" height="44" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="0.5"/>
+        <text x="210" y="326" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af" dominant-baseline="central">VL attempt (max 3 + 1 expert)</text>
+        <text x="210" y="342" text-anchor="middle" font-size="10" fill="#1d4ed8" dominant-baseline="central">Bougie, hyperangulated blade, flex scope</text>
+
+        <line x1="210" y1="352" x2="210" y2="372" stroke="#8a8780" stroke-width="1" marker-end="url(#aw)"/>
+
+        <!-- Diamond: Can ventilate? -->
+        <polygon points="210,372 320,400 210,428 100,400" fill="#fffbeb" stroke="#d97706" stroke-width="0.5"/>
+        <text x="210" y="396" text-anchor="middle" font-size="11" font-weight="500" fill="#92400e" dominant-baseline="central">Can mask</text>
+        <text x="210" y="410" text-anchor="middle" font-size="11" font-weight="500" fill="#92400e" dominant-baseline="central">ventilate?</text>
+
+        <!-- YES: non-emergency -->
+        <line x1="320" y1="400" x2="370" y2="400" stroke="#16a34a" stroke-width="1" marker-end="url(#aw)"/>
+        <text x="343" y="393" text-anchor="middle" font-size="10" fill="#16a34a">Yes</text>
+        <rect x="370" y="380" width="46" height="40" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+        <text x="393" y="397" text-anchor="middle" font-size="10" font-weight="500" fill="#15803d" dominant-baseline="central">SGA /</text>
+        <text x="393" y="411" text-anchor="middle" font-size="10" font-weight="500" fill="#15803d" dominant-baseline="central">Awaken</text>
+
+        <!-- NO: CICO -->
+        <line x1="210" y1="428" x2="210" y2="452" stroke="#dc2626" stroke-width="1.5" marker-end="url(#aw)"/>
+        <text x="218" y="442" font-size="10" fill="#dc2626">No</text>
+
+        <!-- CICO box -->
+        <rect x="80" y="452" width="260" height="56" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="210" y="472" text-anchor="middle" font-size="12" font-weight="600" fill="#991b1b" dominant-baseline="central">CICO — Emergency</text>
+        <text x="210" y="490" text-anchor="middle" font-size="10" fill="#b91c1c" dominant-baseline="central">Scalpel-bougie cric (ETT 6.0)</text>
+        <text x="210" y="503" text-anchor="middle" font-size="10" fill="#b91c1c" dominant-baseline="central">Needle cric as bridge if needed</text>
+
+        <line x1="210" y1="508" x2="210" y2="528" stroke="#8a8780" stroke-width="1" marker-end="url(#aw)"/>
+
+        <!-- Extubation note -->
+        <rect x="100" y="528" width="220" height="36" rx="8" fill="#f2f1ed" stroke="#8a8780" stroke-width="0.5"/>
+        <text x="210" y="546" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1816" dominant-baseline="central">Document + AEC before extubation</text>
+      </svg>
     </div>
   </div>
 
@@ -286,34 +336,66 @@ body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg);
       </div>
       <div class="ref-chev open" id="refchev1">&#9662;</div>
     </div>
-    <div class="ref-body open" id="refbody1">
-      <div class="ref-section-label">PRBCs — 1 unit raises Hgb ~1 g/dL, Hct ~3%</div>
-      <div class="ref-item">Transfuse at Hgb &lt;7 g/dL in most patients</div>
-      <div class="ref-item">Transfuse at Hgb &lt;8 g/dL in cardiac surgery, symptomatic CAD</div>
-      <div class="ref-item">Hgb &gt;10 g/dL — transfusion rarely indicated</div>
-      <div class="ref-item">Symptomatic anemia (SOB, chest pain, hemodynamic instability) overrides threshold</div>
+    <div class="ref-body open" id="refbody1" style="padding:0.75rem 1rem;">
 
-      <div class="ref-section-label">FFP — contains all coagulation factors</div>
-      <div class="ref-item">Dose: 10-15 mL/kg raises clotting factors ~15%</div>
-      <div class="ref-item">Transfuse for: active bleeding + coagulopathy, INR &gt;1.5 with bleeding</div>
-      <div class="ref-item">Massive transfusion: give FFP:PRBC in 1:1 ratio</div>
-      <div class="ref-item">Warfarin reversal: prefer PCC over FFP (faster, less volume)</div>
+      <!-- Transfusion grid -->
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:6px 8px;font-size:10px;font-weight:600;color:#8a8780;text-transform:uppercase;letter-spacing:0.06em;border-bottom:1.5px solid #e8e6e0;">Product</th>
+              <th style="text-align:left;padding:6px 8px;font-size:10px;font-weight:600;color:#8a8780;text-transform:uppercase;letter-spacing:0.06em;border-bottom:1.5px solid #e8e6e0;">Threshold / trigger</th>
+              <th style="text-align:left;padding:6px 8px;font-size:10px;font-weight:600;color:#8a8780;text-transform:uppercase;letter-spacing:0.06em;border-bottom:1.5px solid #e8e6e0;">Effect of 1 unit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#fef2f2;">
+              <td style="padding:8px;font-weight:600;color:#991b1b;border-bottom:1px solid #e8e6e0;white-space:nowrap;">PRBCs</td>
+              <td style="padding:8px;color:#1a1816;border-bottom:1px solid #e8e6e0;">
+                <div style="margin-bottom:2px;">&#8594; Hgb &lt;7 (most patients)</div>
+                <div style="margin-bottom:2px;">&#8594; Hgb &lt;8 (cardiac, symptomatic CAD)</div>
+                <div style="font-size:11px;color:#8a8780;">Symptoms override threshold</div>
+              </td>
+              <td style="padding:8px;color:#1a1816;border-bottom:1px solid #e8e6e0;white-space:nowrap;">&#8593; Hgb ~1<br>&#8593; Hct ~3%</td>
+            </tr>
+            <tr>
+              <td style="padding:8px;font-weight:600;color:#1e40af;border-bottom:1px solid #e8e6e0;white-space:nowrap;">FFP</td>
+              <td style="padding:8px;color:#1a1816;border-bottom:1px solid #e8e6e0;">
+                <div style="margin-bottom:2px;">&#8594; Bleeding + INR &gt;1.5</div>
+                <div style="margin-bottom:2px;">&#8594; Massive transfusion: 1:1 with PRBCs</div>
+                <div style="font-size:11px;color:#8a8780;">Warfarin reversal: prefer PCC</div>
+              </td>
+              <td style="padding:8px;color:#1a1816;border-bottom:1px solid #e8e6e0;">10-15 mL/kg<br>&#8593; factors ~15%</td>
+            </tr>
+            <tr style="background:#fffbeb;">
+              <td style="padding:8px;font-weight:600;color:#92400e;border-bottom:1px solid #e8e6e0;white-space:nowrap;">Platelets</td>
+              <td style="padding:8px;color:#1a1816;border-bottom:1px solid #e8e6e0;">
+                <div style="margin-bottom:2px;">&#8594; &lt;10k prophylactic</div>
+                <div style="margin-bottom:2px;">&#8594; &lt;50k pre-procedure</div>
+                <div style="margin-bottom:2px;">&#8594; &lt;100k neuro / active bleed</div>
+                <div style="font-size:11px;color:#dc2626;">&#9888; Do NOT give in HIT or TTP</div>
+              </td>
+              <td style="padding:8px;color:#1a1816;border-bottom:1px solid #e8e6e0;">&#8593; ~30-60k<br>per apheresis unit</td>
+            </tr>
+            <tr>
+              <td style="padding:8px;font-weight:600;color:#1a1816;border-bottom:1px solid #e8e6e0;white-space:nowrap;">Cryo</td>
+              <td style="padding:8px;color:#1a1816;border-bottom:1px solid #e8e6e0;">
+                <div style="margin-bottom:2px;">&#8594; Fibrinogen &lt;150 with bleeding</div>
+                <div style="margin-bottom:2px;">&#8594; &lt;200 in DIC</div>
+                <div style="font-size:11px;color:#8a8780;">Contains: fibrinogen, VIII, vWF, XIII</div>
+              </td>
+              <td style="padding:8px;color:#1a1816;border-bottom:1px solid #e8e6e0;">10-pool &#8593; fibrinogen<br>~70 mg/dL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <div class="ref-section-label">Platelets — 1 apheresis unit raises count ~30,000-60,000</div>
-      <div class="ref-item">Prophylactic: transfuse if &lt;10,000 (stable) or &lt;20,000 (febrile/unstable)</div>
-      <div class="ref-item">Pre-procedure: maintain &gt;50,000</div>
-      <div class="ref-item">Active bleeding / neuro surgery: maintain &gt;100,000</div>
-      <div class="ref-item">Do NOT transfuse in HIT or TTP — worsens thrombosis</div>
+      <!-- Massive transfusion banner -->
+      <div style="margin-top:10px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:8px 12px;">
+        <div style="font-size:10px;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Massive transfusion protocol</div>
+        <div style="font-size:12px;color:#991b1b;">PRBCs : FFP : Platelets = <strong>1 : 1 : 1</strong> &nbsp;|&nbsp; Add cryo early if fibrinogen low &nbsp;|&nbsp; TXA within 3h of injury</div>
+      </div>
 
-      <div class="ref-section-label">Cryoprecipitate — fibrinogen + factor VIII + vWF + XIII</div>
-      <div class="ref-item">Transfuse when fibrinogen &lt;150 mg/dL with bleeding (or &lt;200 mg/dL in DIC)</div>
-      <div class="ref-item">10-unit pool raises fibrinogen ~70 mg/dL</div>
-      <div class="ref-item">Use for: massive hemorrhage, DIC, vWD, hemophilia A (if specific factor unavailable)</div>
-
-      <div class="ref-section-label">LAST — local anesthetic systemic toxicity</div>
-      <div class="ref-item">Signs: perioral numbness, tinnitus, metallic taste → seizures → cardiovascular collapse</div>
-      <div class="ref-item">Treatment: Intralipid 20% — bolus 1.5 mL/kg IV over 1 min, then infusion 0.25 mL/kg/min</div>
-      <div class="ref-item">Bupivacaine most cardiotoxic — avoid in Bier blocks</div>
     </div>
   </div>
 
