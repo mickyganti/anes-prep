@@ -367,6 +367,25 @@ function renderDrugCard(drugs, weight) {
   if (!hasAny) return '';
 
   var inner = '';
+  // Always ensure core drugs are present in correct phases
+  if (!drugs.induction) drugs.induction = [];
+  if (!drugs.emergence) drugs.emergence = [];
+
+  var hasPropo = drugs.induction.some(function(d) { return d.name.toLowerCase().indexOf('propofol') !== -1; });
+  if (!hasPropo) drugs.induction.unshift({ name: 'Propofol', mgkg: '1.5–2.5', mg: null });
+
+  var hasSux = drugs.induction.some(function(d) { return d.name.toLowerCase().indexOf('succinylcholine') !== -1 || d.name.toLowerCase().indexOf('sux') !== -1; });
+  if (!hasSux) drugs.induction.push({ name: 'Succinylcholine', mgkg: '1–1.5', mg: null });
+
+  var hasSugam = drugs.emergence.some(function(d) { return d.name.toLowerCase().indexOf('sugammadex') !== -1; });
+  if (!hasSugam) drugs.emergence.unshift({ name: 'Sugammadex', mgkg: '2–4', mg: null });
+
+  var hasNeo = drugs.emergence.some(function(d) { return d.name.toLowerCase().indexOf('neostigmine') !== -1 || d.name.toLowerCase().indexOf('glycopyrrolate') !== -1; });
+  if (!hasNeo) {
+    drugs.emergence.push({ name: 'Glycopyrrolate', mgkg: '0.01', mg: null });
+    drugs.emergence.push({ name: 'Neostigmine', mgkg: '0.04', mg: null });
+  }
+
   groups.forEach(function(g) {
     var list = drugs[g.key];
     if (!list || !list.length) return;
